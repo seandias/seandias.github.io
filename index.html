@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sean Dias, product and data analyst. Product analytics at Wise, digital solutions at OCBC, ML at Gotrade and data science at Bank Jago. CS and Quant Finance at NUS.">
+<meta property="og:title" content="Sean Dias, Product and Data Analyst">
+<meta property="og:description" content="Case studies from Wise, OCBC, Gotrade and Bank Jago, plus personal data projects.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="sean.jpg">
+<title>Sean Dias Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+body{margin:0}img{max-width:100%}
+
+/* Layout: one 1080px reading column; hero with an FX-corridor ticker, then numbered sections as an analyst's report */
+:root{
+  --bg:#F3F6F3; --surface:#FFFFFF; --ink:#12201B; --muted:#55645E; --line:#D9E2DC;
+  --accent:#0B7A63; --accent-soft:#DDEFE8; --amber:#B9770E; --amber-soft:#F6EBD6; --halo-mid:#E4EEF2;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1412; --surface:#151D1A; --ink:#E7EEEA; --muted:#97A8A0; --line:#26332E;
+  --accent:#3CC4A2; --accent-soft:#163A30; --amber:#E2A84B; --amber-soft:#3A2D16; --halo-mid:#1B2A2E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1412; --surface:#151D1A; --ink:#E7EEEA; --muted:#97A8A0; --line:#26332E;
+  --accent:#3CC4A2; --accent-soft:#163A30; --amber:#E2A84B; --amber-soft:#3A2D16; --halo-mid:#1B2A2E; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:18px}
+.mark span.badge{width:32px;height:32px;border-radius:8px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px;letter-spacing:.04em}
+.nav-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--ink);cursor:pointer;font-family:var(--body)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:760px){.nav-links{display:none}}
+
+/* hero */
+.hero{overflow:visible;padding-block:56px 64px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--muted);
+  border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,88px);line-height:.95;letter-spacing:-.03em;margin:22px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(19px,2.4vw,23px);font-weight:500;line-height:1.35;margin:0 0 16px;max-width:30ch;text-wrap:balance}
+.intro{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ledger-h{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.ledger-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:baseline}
+.ledger-row:last-child{border-bottom:0}
+.ledger-row b{font-family:var(--display);font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ledger-row span{color:var(--muted);font-size:14px}
+.ledger-row .up{color:var(--accent)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:40px 32px}}
+
+/* ticker */
+.ticker{border-block:1px solid var(--line);overflow:hidden;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));background:var(--surface)}
+.track{display:flex;gap:28px;width:max-content;padding-block:12px;animation:slide 38s linear infinite;font-family:var(--mono);font-size:14px}
+.ticker:hover .track{animation-play-state:paused}
+.track span{white-space:nowrap;color:var(--muted)}
+.track b{color:var(--ink);font-weight:500}
+.track i{font-style:normal;color:var(--amber);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* portrait: cut-out on a soft studio card, wrapped in a gradient halo, two blurred orbs and a dashed ring */
+.side{position:relative;justify-self:end;width:100%;max-width:400px;margin:24px}
+.side .ring{position:absolute;inset:-30px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--accent) 35%,transparent);animation:spin 60s linear infinite}
+.side .halo{position:absolute;inset:-14px;border-radius:40px;background:linear-gradient(135deg,var(--accent-soft),var(--halo-mid) 50%,var(--amber-soft));opacity:.9}
+.side .orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55}
+.side .orb.a{width:180px;height:180px;right:-40px;top:-40px;background:var(--amber)}
+.side .orb.b{width:150px;height:150px;left:-36px;bottom:-30px;background:var(--accent)}
+.portrait{position:relative;margin:0;border-radius:32px;overflow:hidden;aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);
+  background:radial-gradient(120% 90% at 50% 15%,var(--surface) 0%,var(--accent-soft) 70%);box-shadow:0 30px 60px -20px color-mix(in srgb,var(--accent) 35%,transparent)}
+.portrait img{position:absolute;left:50%;top:6%;width:118%;max-width:none;height:auto;transform:translateX(-50%);display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:860px){.side{justify-self:center;max-width:300px;margin:32px auto 8px;order:0}.side .ring{inset:-18px}}
+.stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:14px;background:var(--surface);margin-bottom:40px}
+.stat{padding:18px 20px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat:first-child{border-left:0}
+.stat b{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat b.up{color:var(--accent)}
+.stat span{color:var(--muted);font-size:14px;line-height:1.4}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* sections */
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.eyebrow::after{content:"";height:1px;width:40px;background:var(--accent)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance;max-width:20ch}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 36px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+.about p{margin:0 0 14px;max-width:60ch}
+.kv{display:grid;gap:0;border-top:1px solid var(--line)}
+.kv div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.kv dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.kv dd{margin:0;min-width:0}
+@media (max-width:760px){.about{grid-template-columns:1fr}.kv div{grid-template-columns:1fr;gap:2px}}
+
+/* experience */
+.roles{display:grid;gap:0}
+.role{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
+.role:last-child{border-bottom:1px solid var(--line)}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.when strong{display:block;font-family:var(--display);font-size:22px;color:var(--ink);font-weight:700;margin-bottom:4px;letter-spacing:-.01em}
+.role h3{font-size:18px;margin:0 0 10px;font-weight:600}
+.role ul{margin:0;padding-left:18px;display:grid;gap:8px;max-width:68ch}
+.role li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
+@media (max-width:760px){.role{grid-template-columns:1fr;gap:10px}}
+
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.case-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.case-label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.case h3{font-family:var(--display);font-size:24px;font-weight:700;line-height:1.15;margin:4px 0 0;letter-spacing:-.01em}
+.metric{text-align:right;flex-shrink:0}
+.metric b{display:block;font-family:var(--display);font-size:34px;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.metric small{font-size:12px;color:var(--muted)}
+.case p{margin:0;font-size:15px}
+.case p strong{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:6px}
+.case .outcome{border-top:1px dashed var(--line);padding-top:14px;margin-top:auto}
+.wip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--amber-soft);color:var(--amber);align-self:flex-start}
+.case.span{grid-column:1/-1}
+.case a.link{font-weight:600;font-size:14px;color:var(--accent);text-decoration:none}
+.case a.link:hover{text-decoration:underline}
+@media (max-width:760px){.cases{grid-template-columns:1fr}}
+
+/* leadership */
+.lead-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.lead{border-top:2px solid var(--ink);padding-top:16px}
+.lead .yr{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.lead h3{margin:6px 0 8px;font-size:18px;font-weight:600}
+.lead p{margin:0;font-size:15px;color:var(--muted)}
+@media (max-width:860px){.lead-grid{grid-template-columns:1fr}}
+
+/* resume + contact */
+.cv{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;background:var(--ink);color:var(--bg);border-radius:18px;padding:40px}
+.cv h2{color:var(--bg);margin-bottom:10px}
+.cv p{margin:0;opacity:.75;max-width:52ch}
+.cv .btn.solid{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.cv .btn.solid:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.cv .btn.ghost{color:var(--bg);border-color:color-mix(in srgb,var(--bg) 40%,transparent)}
+@media (max-width:760px){.cv{grid-template-columns:1fr;padding:28px}}
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+.contact-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.contact-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.contact-row .k{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.contact-row .v{font-weight:500;word-break:break-word;min-width:0}
+.copy{font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 10px;border-radius:6px;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px 40px;font-size:14px;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 24px}
+.chip{font-family:var(--body);font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip span{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:4px}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed="true"] span{color:var(--bg);opacity:.7}
+.viewer{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--ink) 70%,transparent);display:flex;flex-direction:column;
+  padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.viewer-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:900px;width:100%;margin:0 auto 10px;color:var(--bg)}
+.viewer-bar b{font-family:var(--display);font-size:18px}
+.viewer-bar .acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.viewer-bar a{color:var(--bg);font-size:14px}
+.viewer-bar button{font-family:var(--body);font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px;border:0;background:var(--bg);color:var(--ink);cursor:pointer}
+.viewer-pages{flex:1;overflow:auto;max-width:900px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center}
+.viewer-pages canvas{width:100%;height:auto;background:#fff;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.viewer-msg{color:var(--bg);padding:40px 0;text-align:center}
+</style>
+</head>
+<body>
+
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="mark" href="#top"><span class="badge">SD</span>Sean Dias</a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Case studies</a><a href="#resume">Résumé</a>
+    </div>
+    <a class="btn solid" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<main id="top" style="overflow-x:clip">
+  <div class="wrap hero">
+    <div>
+      <span class="status"><span class="dot"></span>Open to 2027 roles · Singapore, London, Dubai, Hong Kong</span>
+      <h1>Sean <em>Dias</em></h1>
+      <p class="lede">Product and data analyst working where finance meets data.</p>
+      <p class="intro">Four internships across payments, banking and investing: product analytics at Wise, digital solutions at OCBC, ML engineering at Gotrade and data science at Bank Jago. I find where the numbers go wrong, explain why, and take a recommendation to the people who decide. I study Computer Science and Quantitative Finance at NUS.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#work">View case studies ↗</a>
+        <a class="btn ghost" href="#resume">Résumé ↓</a>
+      </div>
+    </div>
+    <div class="side">
+    <div class="ring" aria-hidden="true"></div><div class="orb a" aria-hidden="true"></div><div class="halo" aria-hidden="true"></div><div class="orb b" aria-hidden="true"></div>
+    <figure class="portrait"><img src="sean-cut.png" alt="Sean Dias in a dark suit and striped tie, smiling" width="317" height="587"></figure>
+    </div>
+  </div>
+
+  <div class="wrap"><div class="stats" aria-label="Key figures"><div class="stat"><b>~£1M</b><span>monthly volume on dashboards I built</span></div><div class="stat"><b class="up">+7%</b><span>projected conversion from my A/B fix</span></div><div class="stat"><b class="up">−20%</b><span>failed payments after a launch issue I flagged</span></div><div class="stat"><b>163</b><span>UAT test cases run on a bank product</span></div></div></div>
+
+  <div class="ticker" aria-label="Skills">
+    <div class="track">
+      <span><i>Code</i></span><span><b>SQL</b></span><span><b>Python</b></span><span><b>PySpark</b></span><span><b>Java</b></span><span><b>JavaScript</b></span><span><b>Excel VBA</b></span><span><i>Data</i></span><span><b>Snowflake</b></span><span><b>dbt</b></span><span><b>Spark</b></span><span><b>Hive</b></span><span><i>BI</i></span><span><b>Power BI</b></span><span><b>Superset</b></span><span><b>Lightdash</b></span><span><b>Looker</b></span><span><b>Mixpanel</b></span><span><b>Tableau</b></span><span><i>ML / AI</i></span><span><b>XGBoost</b></span><span><b>Random Forest</b></span><span><b>OpenAI API</b></span><span><b>Neo4j</b></span><span><b>Azure ML</b></span><span><i>Methods</i></span><span><b>A/B testing</b></span><span><b>Funnel analysis</b></span><span><b>Pricing benchmarks</b></span><span><i>Tools</i></span><span><b>Git</b></span><span><b>Docker</b></span><span><b>Kubernetes</b></span><span><b>Postman</b></span><span><b>Figma</b></span>
+      <span aria-hidden="true"><i>Code</i></span><span aria-hidden="true"><b>SQL</b></span><span aria-hidden="true"><b>Python</b></span><span aria-hidden="true"><b>PySpark</b></span><span aria-hidden="true"><b>Java</b></span><span aria-hidden="true"><b>JavaScript</b></span><span aria-hidden="true"><b>Excel VBA</b></span><span aria-hidden="true"><i>Data</i></span><span aria-hidden="true"><b>Snowflake</b></span><span aria-hidden="true"><b>dbt</b></span><span aria-hidden="true"><b>Spark</b></span><span aria-hidden="true"><b>Hive</b></span><span aria-hidden="true"><i>BI</i></span><span aria-hidden="true"><b>Power BI</b></span><span aria-hidden="true"><b>Superset</b></span><span aria-hidden="true"><b>Lightdash</b></span><span aria-hidden="true"><b>Looker</b></span><span aria-hidden="true"><b>Mixpanel</b></span><span aria-hidden="true"><b>Tableau</b></span><span aria-hidden="true"><i>ML / AI</i></span><span aria-hidden="true"><b>XGBoost</b></span><span aria-hidden="true"><b>Random Forest</b></span><span aria-hidden="true"><b>OpenAI API</b></span><span aria-hidden="true"><b>Neo4j</b></span><span aria-hidden="true"><b>Azure ML</b></span><span aria-hidden="true"><i>Methods</i></span><span aria-hidden="true"><b>A/B testing</b></span><span aria-hidden="true"><b>Funnel analysis</b></span><span aria-hidden="true"><b>Pricing benchmarks</b></span><span aria-hidden="true"><i>Tools</i></span><span aria-hidden="true"><b>Git</b></span><span aria-hidden="true"><b>Docker</b></span><span aria-hidden="true"><b>Kubernetes</b></span><span aria-hidden="true"><b>Postman</b></span><span aria-hidden="true"><b>Figma</b></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="about">
+      <div class="eyebrow">About</div>
+      <h2>I like analysis that someone acts on.</h2>
+      <div class="about">
+        <div>
+          <p>My work usually starts with a messy question from a product, marketing or leadership team and ends with a recommendation they can take into a roadmap meeting. At Wise that meant breaking an underperforming Philippines test into a funnel, finding that the variant had removed the currency calculator users relied on, and getting it put back.</p>
+          <p>I care about comparing like with like. When I picked routes for a CRM promotion, every customer got the same observation window before I compared route volumes against the wider market.</p>
+          <p>I've also built the other side: ML models at Bank Jago, an LLM feature on a knowledge graph at Gotrade, and data models in dbt that analysts across APAC now query. Outside work I run a self-directed equity portfolio and build research tools on GitHub.</p>
+        </div>
+        <dl class="kv">
+          <div><dt>Programming</dt><dd>SQL, Python (Pandas, NumPy, PySpark), Java, JavaScript, Excel (incl. VBA macros)</dd></div>
+          <div><dt>Data</dt><dd>Snowflake, dbt, Spark, Hive</dd></div>
+          <div><dt>BI</dt><dd>Power BI, Superset, Lightdash, Looker, Mixpanel, Tableau (basic)</dd></div>
+          <div><dt>ML / AI</dt><dd>Logistic Regression, Random Forest, XGBoost, predictive and statistical modelling, LLM applications (OpenAI API), Neo4j, Azure ML</dd></div>
+          <div><dt>Methods</dt><dd>A/B testing, funnel analysis, reconciliation, data validation, pricing and competitor benchmarking, market research</dd></div>
+          <div><dt>Product</dt><dd>UAT and defect triage, requirements gathering, user journey mapping, business reviews, pitch decks and RFPs, Agile/Scrum, Figma, PowerPoint</dd></div>
+          <div><dt>Engineering</dt><dd>Git/GitHub (incl. code review), Docker, Kubernetes, Postman</dd></div>
+          <div><dt>Education</dt><dd>B.Comp Computer Science, Quantitative Finance, NUS · Aug 2023 to June 2027 (expected)</dd></div>
+          <div><dt>Languages</dt><dd>English (fluent) · Hindi (basic)</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="eyebrow">Experience</div>
+      <h2>A payments company, two banks and a broker.</h2>
+      <div class="roles">
+        <article class="role">
+          <div class="when"><strong>Wise</strong>Feb 2026 to Sept 2026<br>Singapore</div>
+          <div>
+            <h3>Product Analyst Intern, APAC Growth</h3>
+            <ul>
+              <li>Broke a Philippines A/B test into a step-by-step funnel and found users dropped off because the variant had removed the currency conversion calculator, a first step that historically converts better. I recommended bringing it back, and the fix went onto the roadmap with a projected 7% lift in conversion.</li>
+              <li>Chose 6 APAC routes for a CRM promotion by comparing each route's volumes against the market over the same time window, looking for routes with room to grow or declining month on month. Marketing signed off on a projected 5% LTV lift, and the results will decide whether it expands to 5 more routes.</li>
+              <li>Owned analytics for the AliPay+ integration, writing the SQL behind Superset dashboards (close to £1M in monthly volume and growing) that product, ops and engineering used to track it end to end.</li>
+              <li>Spotted error spikes in AliPay+ payments from raw tables in the first week after launch and worked through them with engineering. Their fix cut failed transactions by over 20%.</li>
+              <li>Extended dbt models in Snowflake with new QR payment fields, merged through code review, so APAC QR data comes from one source analysts in every market query directly. My QR payments report on top of it was spotlighted at the APAC quarterly meeting.</li>
+              <li>Pulled performance for 4 APAC markets (1 mature, 3 expansion) into one quarterly review and presented what drove each market's numbers to regional leadership, who used it to plan the roadmap.</li>
+              <li>Benchmarked Wise's pricing against competitors across APAC routes; the pricing team took the findings into its upcoming pricing updates. Also reconciled data for new partner banks in Australia and New Zealand.</li>
+            </ul>
+            <div class="tags"><span class="tag">Snowflake</span><span class="tag">dbt</span><span class="tag">Superset</span><span class="tag">Lightdash</span><span class="tag">Mixpanel</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when"><strong>OCBC</strong>May 2025 to Aug 2025<br>Singapore</div>
+          <div>
+            <h3>Digital Solutions Intern, Global Transaction Banking</h3>
+            <ul>
+              <li>Guided a new tokenised-deposits product from requirements towards its first launch, running UAT across 163 test cases and triaging defects with Engineering, Risk and Ops until each was resolved.</li>
+              <li>Researched the CBDC and digital payments market and competitor offerings, then built the positioning and pitch decks leadership took into strategic client meetings and RFPs.</li>
+              <li>Mapped user journeys and service blueprints for the bank's intranet, found 10+ pain points, and wrote them up as future-state requirements for the design team.</li>
+            </ul>
+            <div class="tags"><span class="tag">UAT</span><span class="tag">Market research</span><span class="tag">Service design</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when"><strong>Gotrade</strong>May 2024 to Aug 2024<br>Indonesia</div>
+          <div>
+            <h3>ML/AI Engineer</h3>
+            <ul>
+              <li>Built an LLM feature that summarised company financials and stocks for retail investors, combining the OpenAI API with a Neo4j knowledge graph. It called over 60% of long- and short-term price moves correctly, and testing showed where it broke, such as mixing up quarterly and annual figures.</li>
+              <li>Cleaned and validated messy financial datasets in Pandas and NumPy, improving data integrity by 30% and cutting downstream model error by 20%.</li>
+              <li>Prototyped the same deployment on Azure ML and Devin to test build against buy, and wrote the recommendation that went onto the company roadmap.</li>
+            </ul>
+            <div class="tags"><span class="tag">OpenAI API</span><span class="tag">Neo4j</span><span class="tag">Pandas</span><span class="tag">Azure ML</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when"><strong>Bank Jago</strong>Jan 2023 to June 2023<br>DKatalis, Singapore</div>
+          <div>
+            <h3>Data Science Intern</h3>
+            <ul>
+              <li>Wrote SQL and Python pipelines for KYC compliance and risk data that replaced manual pulls, giving product teams reliable access within compliance requirements.</li>
+              <li>Built engagement models (Logistic Regression, Random Forest, XGBoost) on customer data that showed the product team which features to prioritise.</li>
+              <li>Deployed models to production with Docker and Kubernetes, picking both up on the job, and tested APIs in Postman so the team could iterate on live models faster.</li>
+            </ul>
+            <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="eyebrow">Case studies</div>
+      <h2>Problems I worked on, and what came of them.</h2>
+      <p class="sub">Work projects are described at a level I can share publicly. Personal projects link to their code.</p>
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span>10</span></button>
+        <button type="button" class="chip" data-filter="work" aria-pressed="false">Work <span>7</span></button>
+        <button type="button" class="chip" data-filter="build" aria-pressed="false">Builds <span>3</span></button>
+      </div>
+      <div class="cases">
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Wise · Experimentation</div><h3>Why the Philippines variant lost users</h3></div>
+            <div class="metric"><b>+7%</b><small>projected conversion</small></div>
+          </div>
+          <p><strong>Problem</strong>A localisation test in the Philippines was underperforming and nobody knew which step was to blame.</p>
+          <p><strong>Method</strong>Adapted the GB pipeline to Philippine conventions in Snowflake, set a consistent 30-day action window per signup, and rebuilt the results as a step-by-step funnel.</p>
+          <p class="outcome"><strong>Result</strong>The variant had removed the currency calculator, a high-converting first step. Bringing it back went onto the product roadmap.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Wise · Marketing</div><h3>Picking routes for a CRM promotion</h3></div>
+            <div class="metric"><b>+5%</b><small>projected LTV</small></div>
+          </div>
+          <p><strong>Problem</strong>Marketing wanted to know which APAC routes a transfer promotion should target.</p>
+          <p><strong>Method</strong>Compared route volumes against the market, giving every customer the same window to act, to separate routes with room to grow from routes declining month on month.</p>
+          <p class="outcome"><strong>Result</strong>6 routes approved. If it works, it expands to 5 more.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Wise · Launch monitoring</div><h3>Catching errors in the AliPay+ launch</h3></div>
+            <div class="metric"><b>−20%</b><small>failed transactions</small></div>
+          </div>
+          <p><strong>Problem</strong>A new payment integration needed close monitoring from day one, across several teams.</p>
+          <p><strong>Method</strong>Wrote the SQL behind Superset dashboards for product, ops and engineering, and read raw payment tables in launch week to spot error spikes.</p>
+          <p class="outcome"><strong>Result</strong>Engineering's fix cut failed transactions by over 20%. The dashboards now track close to £1M a month.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Wise · Data modelling</div><h3>One source of truth for APAC QR payments</h3></div>
+            <div class="metric"><b>dbt</b><small>models extended</small></div>
+          </div>
+          <p><strong>Problem</strong>QR payment data was scattered, so each market pulled it differently.</p>
+          <p><strong>Method</strong>Added QR payment fields to the dbt models in Snowflake, merged through code review, then built the APAC QR payments report on top.</p>
+          <p class="outcome"><strong>Result</strong>Analysts in every APAC market now query one source. The report was spotlighted at the APAC quarterly meeting.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Wise · Leadership reporting</div><h3>Quarterly review of 4 APAC markets</h3></div>
+            <div class="metric"><b>4</b><small>markets reviewed</small></div>
+          </div>
+          <p><strong>Problem</strong>Regional leadership needed one view of how a mature market and three expansion markets were doing.</p>
+          <p><strong>Method</strong>Pulled performance from several sources in SQL into a single review and worked out what drove each market's numbers.</p>
+          <p class="outcome"><strong>Result</strong>Presented to regional leadership, who used it to plan the roadmap.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">OCBC · Digital assets</div><h3>Getting tokenised deposits launch-ready</h3></div>
+            <div class="metric"><b>163</b><small>UAT test cases</small></div>
+          </div>
+          <p><strong>Problem</strong>A new tokenised-deposits product had to pass UAT with three teams involved.</p>
+          <p><strong>Method</strong>Ran UAT across 163 test cases and triaged each defect with Engineering, Risk and Ops. Also built the CBDC market positioning and pitch decks.</p>
+          <p class="outcome"><strong>Result</strong>Every defect resolved; leadership took the decks into client meetings and RFPs.</p>
+        </article>
+        <article class="case" data-kind="work">
+          <div class="case-top">
+            <div><div class="case-label">Gotrade · Applied AI</div><h3>LLM stock summaries on a knowledge graph</h3></div>
+            <div class="metric"><b>60%+</b><small>price moves called</small></div>
+          </div>
+          <p><strong>Problem</strong>Retail investors needed plain summaries of company financials.</p>
+          <p><strong>Method</strong>Combined the OpenAI API with a Neo4j knowledge graph, then tested where it broke, such as mixing up quarterly and annual figures.</p>
+          <p class="outcome"><strong>Result</strong>Called over 60% of long- and short-term moves correctly. My build-vs-buy recommendation went onto the roadmap.</p>
+        </article>
+        <article class="case" data-kind="build">
+          <div class="case-top">
+            <div><div class="case-label">Hackathon · Grab x AngelHack</div><h3>GrabRescue</h3></div>
+            <div class="metric"><b>2nd</b><small>Social Responsibility</small></div>
+          </div>
+          <p><strong>Problem</strong>Ambulance dispatch loses time when routing isn't live.</p>
+          <p><strong>Method</strong>Built a dispatch tool with real-time routing on the OpenAI and Google Maps APIs at hackjakarta, then pitched it to the judges.</p>
+          <p class="outcome"><strong>Result</strong>2nd place in the Social Responsibility track.</p>
+        </article>
+        <article class="case" data-kind="build">
+          <div class="case-top">
+            <div><div class="case-label">Personal · Alternative data</div><h3>search-kpi-nowcast</h3></div>
+            <div class="metric"><b>SEC</b><small>KPIs scraped</small></div>
+          </div>
+          <p><strong>Question</strong>Can Google search interest nowcast reported KPIs, starting with Duolingo DAUs and Airbnb?</p>
+          <p><strong>Method</strong>Scrapes KPIs from SEC filings, pulls Google Trends, and tests predictions walk-forward against a naive benchmark. One config and README per company.</p>
+          <p class="outcome"><a class="link" href="https://github.com/seandias/search-kpi-nowcast" target="_blank" rel="noopener">View on GitHub ↗</a></p>
+        </article>
+        <article class="case" data-kind="build">
+          <div class="case-top">
+            <div><div class="case-label">Personal · Quant research</div><h3>Technical indicator backtest</h3></div>
+            <span class="wip">In progress</span>
+          </div>
+          <p><strong>Question</strong>Which combinations of MACD, RSI and moving averages hold up once you account for costs?</p>
+          <p><strong>Method</strong>Walk-forward testing with trading costs, a buy-and-hold benchmark and consistency reporting across periods.</p>
+          <p class="outcome"><a class="link" href="https://github.com/seandias" target="_blank" rel="noopener">GitHub profile ↗</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="eyebrow">Leadership</div>
+      <h2>Outside the classroom.</h2>
+      <div class="lead-grid">
+        <div class="lead"><div class="yr">2025 to 2026</div><h3>NUS Fintech Society, Business Development Lead</h3><p>Pitched fintech firms for sponsorship and guided a team of 5 through their own pitches, securing 3 sponsors worth S$10K. Managed each partnership through to the joint events we'd agreed.</p></div>
+        <div class="lead"><div class="yr">2023 to 2024</div><h3>NUS Computing Club, General Secretary</h3><p>Second-in-command to the president. Organised the School of Computing's Open House and Computing Day, including all announcements and marketing.</p></div>
+        <div class="lead"><div class="yr">hackjakarta</div><h3>Grab x AngelHack, 2nd Place</h3><p>Social Responsibility track, for GrabRescue, an ambulance-dispatch tool with real-time routing.</p></div>
+      </div>
+    </section>
+
+    <section id="resume" style="border-bottom:0">
+      <div class="cv">
+        <div>
+          <h2>The full story, one page.</h2>
+          <p>Experience, skills and education in a single page, ready to forward to your hiring team.</p>
+        </div>
+        <div class="ctas">
+          <a class="btn solid" id="cv-open" href="Sean_Dias_Resume.pdf">View résumé</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>Let's talk data.</h2>
+          <p class="sub">Open to data, product and business analyst roles in Singapore, London, Dubai and Hong Kong, starting 2027. I reply within a day.</p>
+        </div>
+        <div class="contact-list">
+          <div class="contact-row"><span class="k">Email</span><span class="v" id="em">seankdias@gmail.com</span><button class="copy" id="copy-em" type="button">Copy</button></div>
+          <div class="contact-row"><span class="k">GitHub</span><a class="v" href="https://github.com/seandias" target="_blank" rel="noopener">github.com/seandias ↗</a></div>
+          <div class="contact-row"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/seankdias" target="_blank" rel="noopener">linkedin.com/in/seankdias ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer><span>© 2026 Sean Kevin Dias · Singapore</span><a href="#top">Back to top ↑</a></footer>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('.chip').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var f=btn.dataset.filter;
+    document.querySelectorAll('.chip').forEach(function(b){b.setAttribute('aria-pressed', b===btn?'true':'false')});
+    var shown=[];
+    document.querySelectorAll('.case').forEach(function(c){c.hidden = !(f==='all' || c.dataset.kind===f); c.classList.remove('span'); if(!c.hidden) shown.push(c)});
+    if(shown.length%2===1) shown[shown.length-1].classList.add('span');
+  });
+});
+</script>
+<script>
+document.getElementById('copy-em').addEventListener('click', function(){
+  var b=this, t=document.getElementById('em').textContent;
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('em'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+  try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+});
+</script>
+
+<div class="viewer" id="cv-viewer" hidden role="dialog" aria-modal="true" aria-label="Résumé">
+  <div class="viewer-bar"><b>Sean Dias · Résumé</b><div class="acts"><a href="Sean_Dias_Resume.pdf" target="_blank" rel="noopener">Open PDF file ↗</a><button type="button" id="cv-close">Close</button></div></div>
+  <div class="viewer-pages" id="cv-pages"><p class="viewer-msg">Loading résumé…</p></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script>
+(function(){
+  var v=document.getElementById('cv-viewer'), box=document.getElementById('cv-pages'), loaded=false;
+  function close(){v.hidden=true;document.body.style.overflow=''}
+  document.getElementById('cv-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!v.hidden)close()});
+  v.addEventListener('click',function(e){if(e.target===v)close()});
+  document.getElementById('cv-open').addEventListener('click',function(e){
+    e.preventDefault(); v.hidden=false; document.body.style.overflow='hidden';
+    if(loaded) return; loaded=true;
+    fetch('Sean_Dias_Resume.pdf').then(function(r){if(!r.ok)throw new Error(r.status);return r.arrayBuffer()})
+    .then(function(buf){return pdfjsLib.getDocument({data:new Uint8Array(buf)}).promise})
+    .then(function(pdf){
+      box.innerHTML=''; var chain=Promise.resolve();
+      for(var i=1;i<=pdf.numPages;i++)(function(n){chain=chain.then(function(){return pdf.getPage(n).then(function(pg){
+        var scale=Math.min(2.5,(window.devicePixelRatio||1)*1.6), vp=pg.getViewport({scale:scale});
+        var c=document.createElement('canvas'); c.width=vp.width; c.height=vp.height; c.setAttribute('aria-label','Résumé page '+n);
+        box.appendChild(c); return pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;})})})(i);
+      return chain;
+    }).catch(function(){loaded=false;box.innerHTML='<p class="viewer-msg">The résumé could not load here. Use “Open PDF file” above.</p>'});
+  });
+})();
+</script>
+
+</body>
+</html>

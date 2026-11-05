@@ -437,7 +437,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
           <p>Experience, skills and education in a single page, ready to forward to your hiring team.</p>
         </div>
         <div class="ctas">
-          <a class="btn solid" id="cv-open" href="Sean_Dias_Resume.pdf">View résumé</a>
+          <a class="btn solid" id="cv-open" href="Sean_Dias_Resume_Portfolio.pdf">View résumé</a>
         </div>
       </div>
     </section>
@@ -482,7 +482,7 @@ document.getElementById('copy-em').addEventListener('click', function(){
 </script>
 
 <div class="viewer" id="cv-viewer" hidden role="dialog" aria-modal="true" aria-label="Résumé">
-  <div class="viewer-bar"><b>Sean Dias · Résumé</b><div class="acts"><a href="Sean_Dias_Resume.pdf" target="_blank" rel="noopener">Open PDF file ↗</a><button type="button" id="cv-close">Close</button></div></div>
+  <div class="viewer-bar"><b>Sean Dias · Résumé</b><div class="acts"><a href="Sean_Dias_Resume_Portfolio.pdf" target="_blank" rel="noopener">Open PDF file ↗</a><button type="button" id="cv-close">Close</button></div></div>
   <div class="viewer-pages" id="cv-pages"><p class="viewer-msg">Loading résumé…</p></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -497,7 +497,7 @@ document.getElementById('copy-em').addEventListener('click', function(){
   document.getElementById('cv-open').addEventListener('click',function(e){
     e.preventDefault(); v.hidden=false; document.body.style.overflow='hidden';
     if(loaded) return; loaded=true;
-    fetch('Sean_Dias_Resume.pdf').then(function(r){if(!r.ok)throw new Error(r.status);return r.arrayBuffer()})
+    fetch('Sean_Dias_Resume_Portfolio.pdf').then(function(r){if(!r.ok)throw new Error(r.status);return r.arrayBuffer()})
     .then(function(buf){return pdfjsLib.getDocument({data:new Uint8Array(buf)}).promise})
     .then(function(pdf){
       box.innerHTML=''; var chain=Promise.resolve();
